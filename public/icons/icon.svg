@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b5cd6"/>
+      <stop offset="1" stop-color="#063a8c"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <!-- 波 -->
+  <path d="M0 384
+           Q 42 352 85 384 T 171 384 T 256 384 T 341 384 T 427 384 T 512 384
+           V 512 H 0 Z"
+        fill="#ffffff" opacity="0.92"/>
+  <path d="M0 416
+           Q 42 384 85 416 T 171 416 T 256 416 T 341 416 T 427 416 T 512 416
+           V 512 H 0 Z"
+        fill="#7db4f5" opacity="0.55"/>
+  <!-- 級 -->
+  <text x="256" y="240" text-anchor="middle" dominant-baseline="central"
+        font-family="Hiragino Kaku Gothic ProN, Noto Sans JP, sans-serif"
+        font-size="230" font-weight="800" fill="#ffffff">級</text>
+</svg>

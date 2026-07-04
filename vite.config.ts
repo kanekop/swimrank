@@ -1,7 +1,14 @@
-/// <reference types="vitest/config" />
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+
+// vitest 2.x は vite5 を同梱しており、`/// <reference types="vitest/config" />` の
+// UserConfig 拡張が本体の vite6 に効かないため、ここで直接拡張する
+declare module 'vite' {
+  interface UserConfig {
+    test?: import('vitest/node').InlineConfig
+  }
+}
 
 export default defineConfig({
   base: '/swimrank/',
