@@ -1,0 +1,23 @@
+{
+  "projectId": "03e9719f-d96d-44b0-ba45-ffd897966ed9",
+  "shape": "package",
+  "pkg": "swimrank",
+  "globalName": "Swimrank",
+  "srcDir": "src/components",
+  "tsconfig": "tsconfig.json",
+  "componentSrcMap": {
+    "ChipSelector": "src/components/ChipSelector.tsx",
+    "CrossTable": "src/components/CrossTable.tsx",
+    "GradeBadge": "src/components/GradeBadge.tsx",
+    "GradeStepper": "src/components/GradeStepper.tsx",
+    "LadderTable": "src/components/LadderTable.tsx",
+    "TabBar": "src/components/TabBar.tsx",
+    "TimeInput": "src/components/TimeInput.tsx",
+    "Toast": "src/components/Toast.tsx"
+  },
+  "overrides": {
+    "TabBar": { "cardMode": "single", "viewport": "390x140" },
+    "Toast": { "cardMode": "single", "viewport": "390x180" }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
+}

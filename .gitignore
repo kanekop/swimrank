@@ -5,3 +5,8 @@ dev-dist/
 .DS_Store
 __pycache__/
 swimrank-design-handoff.zip
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules
