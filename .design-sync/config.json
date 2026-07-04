@@ -6,6 +6,7 @@
   "srcDir": "src/components",
   "tsconfig": "tsconfig.json",
   "componentSrcMap": {
+    "BirthdateInput": "src/components/BirthdateInput.tsx",
     "ChipSelector": "src/components/ChipSelector.tsx",
     "CrossTable": "src/components/CrossTable.tsx",
     "GradeBadge": "src/components/GradeBadge.tsx",

@@ -5,6 +5,7 @@
  */
 import '../styles/global.css'
 
+export * from './BirthdateInput'
 export * from './ChipSelector'
 export * from './CrossTable'
 export * from './GradeBadge'

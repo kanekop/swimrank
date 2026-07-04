@@ -12,12 +12,12 @@ import { dataMeta } from '../core/data'
 import { ageGroupLabel } from '../core/labels'
 import type { Gender, Profile, RecordsMap } from '../core/types'
 import { storageAvailable } from '../storage/storage'
+import { BirthdateInput } from '../components/BirthdateInput'
 import { ChipSelector } from '../components/ChipSelector'
 import { Toast } from '../components/Toast'
 import styles from './Settings.module.css'
 
 const APP_VERSION = '0.1.0'
-const BIRTHDATE_RE = /^\d{4}-\d{2}-\d{2}$/
 
 const GENDER_OPTIONS: readonly { value: Gender; label: string }[] = [
   { value: 'M', label: '男子' },
@@ -55,8 +55,9 @@ export function Settings({ profile, saveProfile, records, clearRecords }: Settin
     if (trimmed !== profile.name) persist({ ...profile, name: trimmed })
   }
 
-  function handleBirthdateChange(v: string) {
-    if (BIRTHDATE_RE.test(v)) persist({ ...profile, birthdate: v })
+  function handleBirthdateChange(v: string | null) {
+    // 入力途中・不正な間は null が来る（保存済みの値を保持）
+    if (v !== null && v !== profile.birthdate) persist({ ...profile, birthdate: v })
   }
 
   function handleClearRecords() {
@@ -101,17 +102,8 @@ export function Settings({ profile, saveProfile, records, clearRecords }: Settin
           />
         </div>
         <div className={styles.field}>
-          <label className={styles.label} htmlFor="st-birthdate">
-            生年月日
-          </label>
-          <input
-            id="st-birthdate"
-            className={styles.input}
-            type="date"
-            value={profile.birthdate}
-            max={new Date().toISOString().slice(0, 10)}
-            onChange={(e) => handleBirthdateChange(e.target.value)}
-          />
+          <span className={styles.label}>生年月日</span>
+          <BirthdateInput value={profile.birthdate} onChange={handleBirthdateChange} />
         </div>
         <div className={styles.field}>
           <span className={styles.label}>性別（大会区分）</span>

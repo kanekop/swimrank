@@ -9,15 +9,20 @@ import { navigate } from '../app/router'
 import { ageGroupIndex, isUnderage, swimAge } from '../core/age'
 import { ageGroupLabel } from '../core/labels'
 import type { Gender, Profile } from '../core/types'
+import { BirthdateInput } from '../components/BirthdateInput'
 import { ChipSelector } from '../components/ChipSelector'
 import styles from './Onboarding.module.css'
-
-const BIRTHDATE_RE = /^\d{4}-\d{2}-\d{2}$/
 
 const GENDER_OPTIONS: readonly { value: Gender; label: string }[] = [
   { value: 'M', label: '男子' },
   { value: 'F', label: '女子' },
 ]
+
+/** '1971-11-24' → '1971年11月24日'（エコーバック表示用） */
+function birthdateLabel(iso: string): string {
+  const [y, m, d] = iso.split('-').map(Number)
+  return `${y}年${m}月${d}日`
+}
 
 export interface OnboardingProps {
   /** 既存プロフィール（再訪時のプレフィル用）。初回は null */
@@ -27,17 +32,16 @@ export interface OnboardingProps {
 
 export function Onboarding({ profile, saveProfile }: OnboardingProps) {
   const [name, setName] = useState(profile?.name ?? '')
-  const [birthdate, setBirthdate] = useState(profile?.birthdate ?? '')
+  const [birthdate, setBirthdate] = useState<string | null>(profile?.birthdate ?? null)
   const [gender, setGender] = useState<Gender | null>(profile?.gender ?? null)
 
   const today = new Date()
-  const birthdateValid = BIRTHDATE_RE.test(birthdate)
-  const age = birthdateValid ? swimAge(birthdate, today) : null
+  const age = birthdate !== null ? swimAge(birthdate, today) : null
   const ageValid = age !== null && age >= 0 && age <= 120
   const canSubmit = name.trim() !== '' && ageValid && gender !== null
 
   function handleSubmit() {
-    if (!canSubmit || gender === null) return
+    if (!canSubmit || gender === null || birthdate === null) return
     saveProfile({ name: name.trim(), birthdate, gender })
     navigate({ name: 'home' }, { replace: true })
   }
@@ -65,17 +69,8 @@ export function Onboarding({ profile, saveProfile }: OnboardingProps) {
       </div>
 
       <div className={styles.field}>
-        <label className={styles.label} htmlFor="ob-birthdate">
-          生年月日
-        </label>
-        <input
-          id="ob-birthdate"
-          className={styles.input}
-          type="date"
-          value={birthdate}
-          max={today.toISOString().slice(0, 10)}
-          onChange={(e) => setBirthdate(e.target.value)}
-        />
+        <span className={styles.label}>生年月日</span>
+        <BirthdateInput value={birthdate} onChange={setBirthdate} />
       </div>
 
       <div className={styles.field}>
@@ -83,9 +78,9 @@ export function Onboarding({ profile, saveProfile }: OnboardingProps) {
         <ChipSelector options={GENDER_OPTIONS} value={gender} onChange={setGender} label="性別" />
       </div>
 
-      {ageValid && age !== null && (
+      {ageValid && age !== null && birthdate !== null && (
         <div className={styles.preview}>
-          水泳年齢: {age}歳 → {ageGroupLabel(ageGroupIndex(age))}区分
+          {birthdateLabel(birthdate)} → 水泳年齢 {age}歳（{ageGroupLabel(ageGroupIndex(age))}区分）
           {isUnderage(age) && (
             <p className={styles.note}>マスターズ登録は18歳から。18-24区分の基準で表示します</p>
           )}
