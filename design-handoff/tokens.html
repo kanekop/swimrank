@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>デザイントークン | スイムランク</title>
+<style>
+:root {
+  --color-bg: #f4f7fb; --color-surface: #ffffff; --color-surface-2: #eaf0f8;
+  --color-text: #14202e; --color-text-sub: #5a6b7f;
+  --color-primary: #0b5cd6; --color-primary-strong: #063a8c; --color-on-primary: #ffffff;
+  --color-accent: #00a3bf; --color-danger: #d6320b; --color-highlight: #fff3c4;
+  --color-border: #d3dde9; --color-badge-bg: #0b5cd6; --color-badge-text: #ffffff;
+  --color-disabled: #9fb0c3;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 24px; font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); max-width: 720px; margin: 0 auto; }
+h1 { font-size: 22px; } h2 { font-size: 16px; margin-top: 32px; }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+.swatch { border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden; background: var(--color-surface); }
+.swatch .chip { height: 56px; }
+.swatch .meta { padding: 8px 12px; font-size: 12px; }
+.swatch .meta code { font-family: var(--font-mono); color: var(--color-text-sub); display: block; }
+.typerow { display: flex; align-items: baseline; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+.typerow code { font-family: var(--font-mono); font-size: 12px; color: var(--color-text-sub); min-width: 140px; }
+.sprow { display: flex; align-items: center; gap: 16px; padding: 6px 0; }
+.sprow .bar { height: 16px; background: var(--color-primary); border-radius: 3px; }
+.sprow code { font-family: var(--font-mono); font-size: 12px; color: var(--color-text-sub); min-width: 140px; }
+table { border-collapse: collapse; font-size: 14px; }
+td { padding: 4px 16px 4px 0; }
+</style>
+</head>
+<body>
+<h1>スイムランク デザイントークン</h1>
+<p style="color:var(--color-text-sub); font-size:14px">実装は CSS カスタムプロパティ（src/styles/tokens.css）。ダークモードは prefers-color-scheme で全トークンを差し替え。</p>
+
+<h2>カラー（ライト）</h2>
+<div class="swatches">
+  <div class="swatch"><div class="chip" style="background:#f4f7fb"></div><div class="meta">背景<code>--color-bg #f4f7fb</code></div></div>
+  <div class="swatch"><div class="chip" style="background:#ffffff"></div><div class="meta">サーフェス<code>--color-surface #ffffff</code></div></div>
+  <div class="swatch"><div class="chip" style="background:#eaf0f8"></div><div class="meta">サーフェス2<code>--color-surface-2 #eaf0f8</code></div></div>
+  <div class="swatch"><div class="chip" style="background:#14202e"></div><div class="meta">テキスト<code>--color-text #14202e</code></div></div>
+  <div class="swatch"><div class="chip" style="background:#5a6b7f"></div><div class="meta">サブテキスト<code>--color-text-sub #5a6b7f</code></div></div>
+  <div class="swatch"><div class="chip" style="background:#0b5cd6"></div><div class="meta">プライマリ / 級バッジ<code>--color-primary #0b5cd6</code></div></div>
+  <div class="swatch"><div class="chip" style="background:#063a8c"></div><div class="meta">プライマリ強<code>--color-primary-strong #063a8c</code></div></div>
+  <div class="swatch"><div class="chip" style="background:#00a3bf"></div><div class="meta">アクセント（あと何秒）<code>--color-accent #00a3bf</code></div></div>
+  <div class="swatch"><div class="chip" style="background:#d6320b"></div><div class="meta">危険<code>--color-danger #d6320b</code></div></div>
+  <div class="swatch"><div class="chip" style="background:#fff3c4"></div><div class="meta">ハイライト（自分の行）<code>--color-highlight #fff3c4</code></div></div>
+  <div class="swatch"><div class="chip" style="background:#d3dde9"></div><div class="meta">ボーダー<code>--color-border #d3dde9</code></div></div>
+  <div class="swatch"><div class="chip" style="background:#9fb0c3"></div><div class="meta">無効 / 級外バッジ<code>--color-disabled #9fb0c3</code></div></div>
+</div>
+
+<h2>タイポグラフィ</h2>
+<div class="typerow"><code>--text-hero 44px</code><span style="font-size:44px; font-weight:700">8級</span></div>
+<div class="typerow"><code>--text-xl 28px</code><span style="font-size:28px; font-weight:700; font-family:var(--font-mono)">44.54</span></div>
+<div class="typerow"><code>--text-l 20px</code><span style="font-size:20px; font-weight:800">かねこさん、おかえりなさい</span></div>
+<div class="typerow"><code>--text-m 16px</code><span style="font-size:16px">本文・ボタン・チップ</span></div>
+<div class="typerow"><code>--text-s 14px</code><span style="font-size:14px">メタ情報・サブテキスト</span></div>
+<div class="typerow"><code>--text-xs 12px</code><span style="font-size:12px">脚注・タブラベル</span></div>
+<p style="font-size:14px; color:var(--color-text-sub)">本文: システムフォント（Hiragino Kaku Gothic ProN / Noto Sans JP）。タイムは等幅（ui-monospace）。</p>
+
+<h2>スペーシング</h2>
+<div class="sprow"><code>--space-1 4px</code><div class="bar" style="width:4px"></div></div>
+<div class="sprow"><code>--space-2 8px</code><div class="bar" style="width:8px"></div></div>
+<div class="sprow"><code>--space-3 12px</code><div class="bar" style="width:12px"></div></div>
+<div class="sprow"><code>--space-4 16px</code><div class="bar" style="width:16px"></div></div>
+<div class="sprow"><code>--space-5 24px</code><div class="bar" style="width:24px"></div></div>
+<div class="sprow"><code>--space-6 32px</code><div class="bar" style="width:32px"></div></div>
+
+<h2>その他</h2>
+<table>
+  <tr><td><code>--radius-s / m / l</code></td><td>8px / 12px / 20px（チップ・ボタンはl、カードはm）</td></tr>
+  <tr><td><code>--tap-target</code></td><td>48px（全インタラクティブ要素の最小タップ目標）</td></tr>
+  <tr><td><code>--tab-bar-height</code></td><td>56px + env(safe-area-inset-bottom)</td></tr>
+  <tr><td><code>--content-max-width</code></td><td>560px（モバイルファースト、タブレットでは中央寄せ）</td></tr>
+</table>
+</body>
+</html>
