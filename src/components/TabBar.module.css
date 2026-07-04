@@ -48,6 +48,13 @@
   line-height: 1;
 }
 
+/* アクティブpill: 選択中タブのアイコン背後に淡いプライマリ地色 */
+.active .icon {
+  padding: 2px 16px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+}
+
 .label {
   line-height: 1;
 }
