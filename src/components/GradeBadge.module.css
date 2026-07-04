@@ -1,0 +1,28 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-badge-bg);
+  color: var(--color-badge-text);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.row {
+  min-width: calc(var(--space-6) + var(--space-3));
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-s);
+  font-size: var(--text-s);
+}
+
+.hero {
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-l);
+  font-size: var(--text-hero);
+}
+
+.kyugai {
+  background: var(--color-disabled);
+  color: var(--color-on-primary);
+}
