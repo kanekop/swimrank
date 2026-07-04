@@ -55,7 +55,7 @@ export function Cross({ profile, records, grade, stroke, distance, lastEvent }: 
   return (
     <div className={styles.screen}>
       <header className={styles.header}>
-        <h1 className={styles.title}>級表</h1>
+        <h1 className={styles.title}>同じ級での比較</h1>
         <p className={styles.meta}>
           {ageGroupLabel(ageIdx)} ・ {genderText}
         </p>

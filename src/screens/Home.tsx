@@ -64,6 +64,7 @@ export function Home({ profile, records }: HomeProps) {
   return (
     <div className={styles.screen}>
       <header className={styles.header}>
+        <p className={styles.brand}>スイムランク</p>
         <h1 className={styles.greeting}>{profile.name}さん、おかえりなさい 🏊</h1>
         <p className={styles.sub}>
           水泳年齢 {age}歳 ・ {ageGroupLabel(ageIdx)}区分

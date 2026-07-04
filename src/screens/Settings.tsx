@@ -155,6 +155,7 @@ export function Settings({ profile, saveProfile, records, clearRecords }: Settin
             推定値とは: 元データの欠損・誤植を近傍の級・年齢区分から補修した参考値です。該当する基準タイムには
             * を付けて表示しています。
           </p>
+          <p>開発: Yoshimune Kaneko</p>
         </div>
       </section>
 

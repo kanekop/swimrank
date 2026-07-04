@@ -45,7 +45,7 @@ export function Onboarding({ profile, saveProfile }: OnboardingProps) {
   return (
     <div className={styles.screen}>
       <header className={styles.header}>
-        <h1 className={styles.title}>swimrank</h1>
+        <h1 className={styles.title}>スイムランク</h1>
         <p className={styles.tagline}>あなたのタイム、何級？</p>
       </header>
 

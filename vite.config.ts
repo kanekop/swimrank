@@ -18,8 +18,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icons/apple-touch-icon-180x180.png'],
       manifest: {
-        name: 'swimrank - マスターズ水泳 級判定',
-        short_name: 'swimrank',
+        name: 'スイムランク - マスターズ水泳レベル判定',
+        short_name: 'スイムランク',
         lang: 'ja',
         start_url: '.',
         scope: '.',
