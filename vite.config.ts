@@ -11,7 +11,7 @@ declare module 'vite' {
 }
 
 export default defineConfig({
-  base: '/swimrank/',
+  base: '/',
   plugins: [
     react(),
     VitePWA({
