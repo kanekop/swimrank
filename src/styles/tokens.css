@@ -1,0 +1,67 @@
+:root {
+  /* カラー（ライト） */
+  --color-bg: #f4f7fb;
+  --color-surface: #ffffff;
+  --color-surface-2: #eaf0f8;
+  --color-text: #14202e;
+  --color-text-sub: #5a6b7f;
+  --color-primary: #0b5cd6;
+  --color-primary-strong: #063a8c;
+  --color-on-primary: #ffffff;
+  --color-accent: #00a3bf;
+  --color-danger: #d6320b;
+  --color-highlight: #fff3c4;
+  --color-border: #d3dde9;
+  --color-badge-bg: #0b5cd6;
+  --color-badge-text: #ffffff;
+  --color-disabled: #9fb0c3;
+
+  /* スペーシング */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* 角丸 */
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 20px;
+
+  /* タイポグラフィ */
+  --font-body: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN',
+    'Noto Sans JP', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --text-xs: 12px;
+  --text-s: 14px;
+  --text-m: 16px;
+  --text-l: 20px;
+  --text-xl: 28px;
+  --text-hero: 44px;
+
+  /* レイアウト */
+  --tab-bar-height: 56px;
+  --tap-target: 48px;
+  --content-max-width: 560px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0e1621;
+    --color-surface: #182433;
+    --color-surface-2: #213042;
+    --color-text: #e8eef5;
+    --color-text-sub: #93a5ba;
+    --color-primary: #4c8df0;
+    --color-primary-strong: #2f6ac9;
+    --color-on-primary: #ffffff;
+    --color-accent: #2fc4d9;
+    --color-danger: #f0602f;
+    --color-highlight: #3d3722;
+    --color-border: #2c3d52;
+    --color-badge-bg: #4c8df0;
+    --color-badge-text: #0e1621;
+    --color-disabled: #4c5d72;
+  }
+}
