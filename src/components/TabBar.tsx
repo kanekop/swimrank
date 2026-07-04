@@ -1,5 +1,5 @@
 /**
- * 下部固定タブバー。[ホーム #/] [レベル判定 #/kentei] [レベル内で比較 #/cross] [設定 #/settings]
+ * 下部固定タブバー。[ホーム #/] [ランク判定 #/kentei] [ランク内で比較 #/cross] [設定 #/settings]
  * safe-area-inset-bottom 対応、現在ルートをハイライト。
  * オンボーディング中は App 側で描画しないこと（タブバー非表示仕様）。
  */
@@ -25,14 +25,14 @@ const TABS: readonly TabDef[] = [
   },
   {
     key: 'kentei',
-    label: 'レベル判定',
+    label: 'ランク判定',
     icon: '⏱️',
     href: '#/kentei',
     isActive: (r) => r.name === 'kentei' || r.name === 'kentei-result',
   },
   {
     key: 'cross',
-    label: 'レベル内で比較',
+    label: 'ランク内で比較',
     icon: '📊',
     href: '#/cross',
     isActive: (r) => r.name === 'cross',

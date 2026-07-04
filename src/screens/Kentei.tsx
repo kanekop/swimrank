@@ -56,7 +56,7 @@ export function Kentei({ lastEvent, setLastEvent, initialCs }: KenteiProps) {
 
   return (
     <div className={styles.screen}>
-      <h1 className={styles.title}>レベル判定</h1>
+      <h1 className={styles.title}>ランク判定</h1>
 
       <div className={styles.field}>
         <span className={styles.label}>種目</span>
