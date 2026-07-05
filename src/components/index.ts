@@ -7,6 +7,7 @@ import '../styles/global.css'
 
 export * from './BirthdateInput'
 export * from './ChipSelector'
+export * from './ConfirmDialog'
 export * from './CrossTable'
 export * from './GradeBadge'
 export * from './GradeStepper'

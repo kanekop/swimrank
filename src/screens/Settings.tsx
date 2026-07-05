@@ -14,6 +14,7 @@ import type { Gender, Profile, RecordsMap } from '../core/types'
 import { storageAvailable } from '../storage/storage'
 import { BirthdateInput } from '../components/BirthdateInput'
 import { ChipSelector } from '../components/ChipSelector'
+import { ConfirmDialog } from '../components/ConfirmDialog'
 import { Toast } from '../components/Toast'
 import styles from './Settings.module.css'
 
@@ -29,11 +30,23 @@ export interface SettingsProps {
   saveProfile: (p: Profile) => boolean
   records: RecordsMap
   clearRecords: () => void
+  clearProfile: () => void
+  /** リセット後にオンボーディング画面で出すトースト文言をセット */
+  onFlash: (message: string) => void
 }
 
-export function Settings({ profile, saveProfile, records, clearRecords }: SettingsProps) {
+export function Settings({
+  profile,
+  saveProfile,
+  records,
+  clearRecords,
+  clearProfile,
+  onFlash,
+}: SettingsProps) {
   const [toast, setToast] = useState<string | null>(null)
   const [name, setName] = useState(profile.name)
+  const [resetOpen, setResetOpen] = useState(false)
+  const [resetAlsoRecords, setResetAlsoRecords] = useState(false)
 
   const age = swimAge(profile.birthdate, new Date())
   const ageIdx = ageGroupIndex(age)
@@ -64,6 +77,16 @@ export function Settings({ profile, saveProfile, records, clearRecords }: Settin
     if (!window.confirm(`マイ記録（${recordCount}件）をすべて削除します。よろしいですか？`)) return
     clearRecords()
     setToast('マイ記録を削除しました')
+  }
+
+  function handleResetProfile() {
+    const alsoRecords = resetAlsoRecords
+    // フラッシュを先にセット → clearProfile で App がオンボーディングへ自動リダイレクト
+    onFlash(
+      alsoRecords ? 'プロフィールと記録をリセットしました' : 'プロフィールをリセットしました',
+    )
+    if (alsoRecords) clearRecords()
+    clearProfile()
   }
 
   async function handleCopy() {
@@ -130,6 +153,16 @@ export function Settings({ profile, saveProfile, records, clearRecords }: Settin
         <button type="button" className={styles.dangerBtn} onClick={handleClearRecords}>
           マイ記録をすべて削除
         </button>
+        <div className={styles.resetItem}>
+          <button
+            type="button"
+            className={styles.dangerBtn}
+            onClick={() => setResetOpen(true)}
+          >
+            プロフィールをリセット
+          </button>
+          <p className={styles.resetSub}>名前・生年月日・性別を消して最初の画面に戻ります</p>
+        </div>
       </section>
 
       <section className={styles.section}>
@@ -150,6 +183,29 @@ export function Settings({ profile, saveProfile, records, clearRecords }: Settin
           <p>開発: Yoshimune Kaneko</p>
         </div>
       </section>
+
+      {resetOpen && (
+        <ConfirmDialog
+          title="プロフィールをリセットしますか？"
+          body="名前・生年月日・性別が消え、最初の設定画面に戻ります。この操作は取り消せません。"
+          confirmLabel="リセットする"
+          danger
+          onConfirm={handleResetProfile}
+          onCancel={() => {
+            setResetOpen(false)
+            setResetAlsoRecords(false)
+          }}
+        >
+          <label className={styles.resetCheck}>
+            <input
+              type="checkbox"
+              checked={resetAlsoRecords}
+              onChange={(e) => setResetAlsoRecords(e.target.checked)}
+            />
+            マイ記録もすべて削除する
+          </label>
+        </ConfirmDialog>
+      )}
 
       <Toast message={toast} onDismiss={() => setToast(null)} />
     </div>

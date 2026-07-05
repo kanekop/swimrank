@@ -1,0 +1,63 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background: rgba(20, 32, 46, 0.5);
+}
+
+.dialog {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border-radius: var(--radius-l);
+  background: var(--color-surface);
+  box-shadow: 0 12px 40px rgba(20, 32, 46, 0.3);
+}
+
+.title {
+  font-size: var(--text-l);
+  font-weight: 800;
+}
+
+.body {
+  font-size: var(--text-s);
+  color: var(--color-text-sub);
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.cancel {
+  flex: 1;
+  min-height: var(--tap-target);
+  border-radius: var(--radius-m);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  font-size: var(--text-m);
+  font-weight: 700;
+}
+
+.confirm {
+  flex: 1;
+  min-height: var(--tap-target);
+  border-radius: var(--radius-m);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--text-m);
+  font-weight: 700;
+}
+
+.confirm.danger {
+  background: var(--color-danger);
+}

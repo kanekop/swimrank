@@ -8,6 +8,7 @@
   "componentSrcMap": {
     "BirthdateInput": "src/components/BirthdateInput.tsx",
     "ChipSelector": "src/components/ChipSelector.tsx",
+    "ConfirmDialog": "src/components/ConfirmDialog.tsx",
     "CrossTable": "src/components/CrossTable.tsx",
     "GradeBadge": "src/components/GradeBadge.tsx",
     "GradeStepper": "src/components/GradeStepper.tsx",

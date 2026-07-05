@@ -6,7 +6,7 @@
  *   （画面ごとにフックを複製するとステートが分裂するため）
  */
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import type { ReactElement } from 'react'
 import { navigate } from './app/router'
 import { useHashRoute } from './app/useHashRoute'
@@ -24,9 +24,11 @@ import styles from './App.module.css'
 
 export function App(): ReactElement | null {
   const route = useHashRoute()
-  const { profile, saveProfile } = useProfile()
+  const { profile, saveProfile, clearProfile } = useProfile()
   const { records, saveRecord, clearRecords } = useRecords()
   const { lastEvent, setLastEvent } = useLastEvent()
+  // オンボーディングへ遷移した先で出す一度きりのトースト（プロフィールリセット時）
+  const [flash, setFlash] = useState<string | null>(null)
 
   const needsOnboarding = profile === null && route.name !== 'onboarding'
   useEffect(() => {
@@ -36,7 +38,12 @@ export function App(): ReactElement | null {
   if (route.name === 'onboarding') {
     return (
       <main className={styles.main}>
-        <Onboarding profile={profile} saveProfile={saveProfile} />
+        <Onboarding
+          profile={profile}
+          saveProfile={saveProfile}
+          flash={flash}
+          onFlashDone={() => setFlash(null)}
+        />
       </main>
     )
   }
@@ -84,6 +91,8 @@ export function App(): ReactElement | null {
           saveProfile={saveProfile}
           records={records}
           clearRecords={clearRecords}
+          clearProfile={clearProfile}
+          onFlash={setFlash}
         />
       )
       break

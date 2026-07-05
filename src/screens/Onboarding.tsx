@@ -11,6 +11,7 @@ import { ageGroupLabel } from '../core/labels'
 import type { Gender, Profile } from '../core/types'
 import { BirthdateInput } from '../components/BirthdateInput'
 import { ChipSelector } from '../components/ChipSelector'
+import { Toast } from '../components/Toast'
 import styles from './Onboarding.module.css'
 
 const GENDER_OPTIONS: readonly { value: Gender; label: string }[] = [
@@ -28,9 +29,12 @@ export interface OnboardingProps {
   /** 既存プロフィール（再訪時のプレフィル用）。初回は null */
   profile: Profile | null
   saveProfile: (p: Profile) => boolean
+  /** リセット直後に一度だけ出すトースト文言。なければ null */
+  flash?: string | null
+  onFlashDone?: () => void
 }
 
-export function Onboarding({ profile, saveProfile }: OnboardingProps) {
+export function Onboarding({ profile, saveProfile, flash = null, onFlashDone }: OnboardingProps) {
   const [name, setName] = useState(profile?.name ?? '')
   const [birthdate, setBirthdate] = useState<string | null>(profile?.birthdate ?? null)
   const [gender, setGender] = useState<Gender | null>(profile?.gender ?? null)
@@ -90,6 +94,8 @@ export function Onboarding({ profile, saveProfile }: OnboardingProps) {
       <button type="button" className="btn-primary" disabled={!canSubmit} onClick={handleSubmit}>
         はじめる
       </button>
+
+      <Toast message={flash} onDismiss={() => onFlashDone?.()} />
     </div>
   )
 }
