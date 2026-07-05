@@ -19,7 +19,8 @@
   },
   "overrides": {
     "TabBar": { "cardMode": "single", "viewport": "390x140" },
-    "Toast": { "cardMode": "single", "viewport": "390x180" }
+    "Toast": { "cardMode": "single", "viewport": "390x180" },
+    "ConfirmDialog": { "cardMode": "column", "viewport": "390x420" }
   },
   "readmeHeader": ".design-sync/conventions.md"
 }
