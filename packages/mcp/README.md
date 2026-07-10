@@ -6,7 +6,8 @@
 
 ```sh
 # リポジトリルートで
-npm install          # workspaces を解決し、prepare で dist をビルド
+npm install                        # workspaces を解決（core は prepare で自動ビルド）
+npm run build -w swimrank-mcp      # MCPサーバーをビルド（dist/index.js）
 
 # Claude Code に登録（userスコープ = 全ローカルセッションで利用可）
 claude mcp add --scope user swimrank -- node /path/to/swimrank/packages/mcp/dist/index.js
