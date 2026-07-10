@@ -7,10 +7,10 @@
  */
 
 import { useState } from 'react'
-import { ageGroupIndex, isUnderage, swimAge } from '../core/age'
-import { dataMeta } from '../core/data'
-import { ageGroupLabel } from '../core/labels'
-import type { Gender, Profile, RecordsMap } from '../core/types'
+import { ageGroupIndex, isUnderage, swimAge } from 'swimrank-core'
+import { dataMeta } from 'swimrank-core'
+import { ageGroupLabel } from 'swimrank-core'
+import type { Gender, Profile, RecordsMap } from 'swimrank-core'
 import { storageAvailable } from '../storage/storage'
 import { BirthdateInput } from '../components/BirthdateInput'
 import { ChipSelector } from '../components/ChipSelector'

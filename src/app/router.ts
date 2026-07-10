@@ -11,7 +11,7 @@
  *   #/settings
  */
 
-import type { EventKey, Stroke } from '../core/types'
+import type { EventKey, Stroke } from 'swimrank-core'
 
 /** 泳法の固定順リスト（core/data.ts 生成前でも自己完結するようここでも定義） */
 export const STROKE_VALUES: readonly Stroke[] = ['Fr', 'Bc', 'Br', 'Bt', 'IM']

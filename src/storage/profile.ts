@@ -1,6 +1,6 @@
 /** プロフィールの永続化（swimrank:v1:profile） */
 
-import type { Profile } from '../core/types'
+import type { Profile } from 'swimrank-core'
 import { load, remove, save } from './storage'
 
 const BIRTHDATE_RE = /^\d{4}-\d{2}-\d{2}$/

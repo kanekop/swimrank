@@ -8,12 +8,12 @@
  */
 
 import { buildHash } from '../app/router'
-import type { CrossRow } from '../core/cross'
-import { eventKey, getEvent } from '../core/data'
-import { gradeFor } from '../core/grade'
-import { gradeLabel, strokeLabel } from '../core/labels'
-import { formatCs } from '../core/time'
-import type { Gender, RecordsMap, Stroke } from '../core/types'
+import type { CrossRow } from 'swimrank-core'
+import { eventKey, getEvent } from 'swimrank-core'
+import { gradeFor } from 'swimrank-core'
+import { gradeLabel, strokeLabel } from 'swimrank-core'
+import { formatCs } from 'swimrank-core'
+import type { Gender, RecordsMap, Stroke } from 'swimrank-core'
 import styles from './CrossTable.module.css'
 
 export interface CrossTableProps {

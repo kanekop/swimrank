@@ -4,7 +4,7 @@
  */
 
 import { useCallback, useState } from 'react'
-import type { Stroke } from '../core/types'
+import type { Stroke } from 'swimrank-core'
 import { isStroke } from '../app/router'
 import { load, save } from '../storage/storage'
 

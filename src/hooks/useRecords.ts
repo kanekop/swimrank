@@ -1,7 +1,7 @@
 /** マイ記録の React state ⇄ localStorage write-through フック */
 
 import { useCallback, useState } from 'react'
-import type { EventKey, RecordEntry, RecordsMap } from '../core/types'
+import type { EventKey, RecordEntry, RecordsMap } from 'swimrank-core'
 import {
   clearRecords as removeStoredRecords,
   loadRecords,

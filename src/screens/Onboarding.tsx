@@ -6,9 +6,9 @@
 
 import { useState } from 'react'
 import { navigate } from '../app/router'
-import { ageGroupIndex, isUnderage, swimAge } from '../core/age'
-import { ageGroupLabel } from '../core/labels'
-import type { Gender, Profile } from '../core/types'
+import { ageGroupIndex, isUnderage, swimAge } from 'swimrank-core'
+import { ageGroupLabel } from 'swimrank-core'
+import type { Gender, Profile } from 'swimrank-core'
 import { BirthdateInput } from '../components/BirthdateInput'
 import { ChipSelector } from '../components/ChipSelector'
 import { Toast } from '../components/Toast'

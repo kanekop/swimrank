@@ -5,12 +5,12 @@
  */
 
 import { buildHash } from '../app/router'
-import { ageGroupIndex, isUnderage, swimAge } from '../core/age'
-import { STROKES, getEventByKey, parseEventKey } from '../core/data'
-import { gradeFor, type GradeResult } from '../core/grade'
-import { ageGroupLabel, eventLabel } from '../core/labels'
-import { formatCs } from '../core/time'
-import type { Profile, RecordEntry, RecordsMap, Stroke } from '../core/types'
+import { ageGroupIndex, isUnderage, swimAge } from 'swimrank-core'
+import { STROKES, getEventByKey, parseEventKey } from 'swimrank-core'
+import { gradeFor, type GradeResult } from 'swimrank-core'
+import { ageGroupLabel, eventLabel } from 'swimrank-core'
+import { formatCs } from 'swimrank-core'
+import type { Profile, RecordEntry, RecordsMap, Stroke } from 'swimrank-core'
 import { GradeBadge } from '../components/GradeBadge'
 import styles from './Home.module.css'
 

@@ -3,7 +3,7 @@
  * ＋で上位級（数字が大きい方、20級が最高位）、−で下位級へ。1..20でクランプ。
  */
 
-import { gradeLabel } from '../core/labels'
+import { gradeLabel } from 'swimrank-core'
 import styles from './GradeStepper.module.css'
 
 export interface GradeStepperProps {

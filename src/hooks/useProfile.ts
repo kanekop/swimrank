@@ -7,7 +7,7 @@
  */
 
 import { useCallback, useState } from 'react'
-import type { Profile } from '../core/types'
+import type { Profile } from 'swimrank-core'
 import {
   clearProfile as removeStoredProfile,
   loadProfile,

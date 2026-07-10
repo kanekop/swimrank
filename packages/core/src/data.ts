@@ -1,5 +1,5 @@
 import type { EventId, EventKey, Gender, Stroke } from './types'
-import raw from '../data/sikaku.json'
+import raw from './data/sikaku.json'
 
 /** sikaku.json のイベント生データ（マトリクス形式） */
 interface RawEvent {

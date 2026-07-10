@@ -6,11 +6,11 @@
  */
 
 import { navigate } from '../app/router'
-import { ageGroupIndex, isUnderage, swimAge } from '../core/age'
-import { crossDistance, crossStroke } from '../core/cross'
-import { DISTANCES, STROKES, eventKey } from '../core/data'
-import { ageGroupLabel, gradeLabel, strokeLabel } from '../core/labels'
-import type { Profile, RecordsMap, Stroke } from '../core/types'
+import { ageGroupIndex, isUnderage, swimAge } from 'swimrank-core'
+import { crossDistance, crossStroke } from 'swimrank-core'
+import { DISTANCES, STROKES, eventKey } from 'swimrank-core'
+import { ageGroupLabel, gradeLabel, strokeLabel } from 'swimrank-core'
+import type { Profile, RecordsMap, Stroke } from 'swimrank-core'
 import type { LastEvent } from '../hooks/useLastEvent'
 import { CrossTable } from '../components/CrossTable'
 import { GradeStepper } from '../components/GradeStepper'

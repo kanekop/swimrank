@@ -3,7 +3,7 @@
  * キーは性別中立の EventKey（例 "50Br"）なので、性別変更時も再判定だけで済む。
  */
 
-import type { RecordEntry, RecordsMap } from '../core/types'
+import type { RecordEntry, RecordsMap } from 'swimrank-core'
 import { load, remove, save } from './storage'
 
 function isRecordEntry(v: unknown): v is RecordEntry {

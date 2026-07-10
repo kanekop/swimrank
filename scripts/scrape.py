@@ -4,7 +4,7 @@
 
 Fetches the 44 Masters qualification-table pages (cache-first into
 scripts/cache/), repairs source typos with an iterative detect/repair loop,
-validates hard invariants, and emits src/data/sikaku.json plus
+validates hard invariants, and emits packages/core/src/data/sikaku.json plus
 scripts/repair-report.md.
 
 Usage:
@@ -29,7 +29,7 @@ ROOT = os.path.dirname(SCRIPT_DIR)
 CACHE_DIR = os.path.join(SCRIPT_DIR, "cache")
 OVERRIDES_PATH = os.path.join(SCRIPT_DIR, "overrides.json")
 REPORT_PATH = os.path.join(SCRIPT_DIR, "repair-report.md")
-OUT_JSON_PATH = os.path.join(ROOT, "src", "data", "sikaku.json")
+OUT_JSON_PATH = os.path.join(ROOT, "packages", "core", "src", "data", "sikaku.json")
 
 BASE_URL = "https://zavastsurumi.web.fc2.com/organization/sikaku/"
 SOURCE_NAME = "マスターズ水泳年齢別資格表"
@@ -1048,7 +1048,7 @@ def main(argv):
         f.write(report)
     print("\n" + report, file=sys.stderr)
     if not all(passed for _, passed, _ in checks):
-        print("VALIDATION FAILED — src/data/sikaku.json は書き出しません", file=sys.stderr)
+        print("VALIDATION FAILED — packages/core/src/data/sikaku.json は書き出しません", file=sys.stderr)
         return 1
     os.makedirs(os.path.dirname(OUT_JSON_PATH), exist_ok=True)
     with open(OUT_JSON_PATH, "w", encoding="utf-8") as f:

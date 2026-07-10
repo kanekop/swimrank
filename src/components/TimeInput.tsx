@@ -9,7 +9,7 @@
 
 import { useRef, useState } from 'react'
 import type { KeyboardEvent } from 'react'
-import { csToParts, isValidParts, partsToCs } from '../core/time'
+import { csToParts, isValidParts, partsToCs } from 'swimrank-core'
 import styles from './TimeInput.module.css'
 
 export interface TimeInputProps {

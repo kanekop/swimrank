@@ -5,9 +5,9 @@
  */
 
 import { useEffect, useRef } from 'react'
-import type { LadderRow } from '../core/grade'
-import { gradeLabel } from '../core/labels'
-import { formatCs } from '../core/time'
+import type { LadderRow } from 'swimrank-core'
+import { gradeLabel } from 'swimrank-core'
+import { formatCs } from 'swimrank-core'
 import styles from './LadderTable.module.css'
 
 export interface LadderTableProps {

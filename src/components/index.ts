@@ -17,11 +17,11 @@ export * from './TimeInput'
 export * from './Toast'
 
 // デザインエージェント向けにコアロジックも公開（級判定・表示整形・実データ参照）
-export { formatCs, partsToCs, csToParts, isValidParts } from '../core/time'
-export { strokeLabel, gradeLabel, eventLabel, ageGroupLabel } from '../core/labels'
-export { swimAge, ageGroupIndex, isUnderage } from '../core/age'
-export { gradeFor, ladder } from '../core/grade'
-export { crossStroke, crossDistance } from '../core/cross'
+export { formatCs, partsToCs, csToParts, isValidParts } from 'swimrank-core'
+export { strokeLabel, gradeLabel, eventLabel, ageGroupLabel } from 'swimrank-core'
+export { swimAge, ageGroupIndex, isUnderage } from 'swimrank-core'
+export { gradeFor, ladder } from 'swimrank-core'
+export { crossStroke, crossDistance } from 'swimrank-core'
 export {
   getEvent,
   getEventByKey,
@@ -34,8 +34,8 @@ export {
   STROKES,
   DISTANCES,
   dataMeta,
-} from '../core/data'
-export type { LadderRow, GradeResult } from '../core/grade'
-export type { CrossRow } from '../core/cross'
-export type { EventData } from '../core/data'
-export type { Gender, Stroke, EventKey, RecordsMap } from '../core/types'
+} from 'swimrank-core'
+export type { LadderRow, GradeResult } from 'swimrank-core'
+export type { CrossRow } from 'swimrank-core'
+export type { EventData } from 'swimrank-core'
+export type { Gender, Stroke, EventKey, RecordsMap } from 'swimrank-core'
