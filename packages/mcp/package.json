@@ -1,0 +1,23 @@
+{
+  "name": "swimrank-mcp",
+  "version": "0.1.0",
+  "description": "スイムランクのMCPサーバー — マスターズ水泳の資格級判定・比較ツールをAIエージェントに提供",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "swimrank-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "smoke": "node smoke.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "swimrank-core": "*",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.0"
+  }
+}

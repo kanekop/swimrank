@@ -24,4 +24,5 @@ node .ds-sync/package-build.mjs --config .design-sync/config.json \
 - プレビューに焼き込んだ基準タイム値は sikaku.json が更新されても自動追従しない（表示例としては害なし。ズレが気になったら previews/*.tsx の値を更新）。
 - CrossTable プレビューの ✓記録→級 注記はバンドル内の実データで再判定される — 資格表データを更新すると注記の級が変わりうる（それが正しい挙動）。
 - バレル（src/components/index.ts）にコンポーネントを追加したら componentSrcMap にも追記が必要。
+- 2026-07: core は workspace パッケージ `packages/core`（swimrank-core）に切出し済み。バレルは `swimrank-core` を re-export し、esbuild は node_modules の workspace symlink 経由で解決する（tsup ビルドの dist を読む）。core 変更後は `npm run build -w swimrank-core` してから design-sync を回すこと。
 - 検証環境: playwright + chromium は .ds-sync/node_modules に導入（リポジトリ本体の package.json には入れていない）。
